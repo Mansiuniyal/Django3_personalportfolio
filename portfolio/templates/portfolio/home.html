@@ -1,0 +1,60 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="row justify-content-center my-3">
+  <div class="col-5">
+    <img src="{% static 'portfolio/mansi.jpg' %}" class="img-fluid">
+  </div>
+</div>
+
+<b><h2 style="color:blue;">About me </h2></b>
+
+<h5 style="color:white;">I 'm a prefinal postgraduate student pursuing MCA from Graphic Era Hill University.  I'm a student with a knack of learning something new everyday. In my free time, I work on my logic building skills and enhancing my programming skills.</h5>
+<&nbsp><b><h2 style="color:blue;">Skills </h2></b>
+<h5 style="color:white;">HTML, CSS, Data Structure, Python, Django, C, C++, operating system</h5>
+<&nbsp><b><h2 style="color:blue;">Experience</h2></b>
+<h5 style="color:white;"><i>Web Developer Intern at The Sparks Foundation(Jan 22-feb-22)</i><br><br> Developed a Basic Banking System,a web application used to transfer money between two users
+  <br> Created dummy data in the database for upto 10 customers
+  <br> Flow : Home − > View Customer − > Select One Customer − > Transfer Money − > Select
+  Receiver − > View Customer
+  <br>Tech Stack : Front-End- HTML , CSS , Bootstrap | Backend : PHP , MYSQL</h5>
+<&nbsp><b><h2 style="color:blue;">Achievements</h2></b>
+<h5 style="color:white;">Semifinalist at Ale-Go:Rythm Hackathon By ABInBev GCC India 2022<br>
+   4* In Python at HackerRank<br>
+   Python (basic) certified at HackerRank</h5>
+   
+
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+    <h1 id="hometext" class="font-weight-bold"> </h1> 
+  </div>
+</div>
+
+<b><h2 class="mt-5" style="color:blue;">Projects</h2></b>
+<hr>
+<div class="row">
+  {% for project in projects %}
+  <div class="col-lg-4 col-md-6">
+
+    {% if project.url %}
+    <a href="{{ project.url }}">
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% else %}
+
+    <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    {% endif %}
+    <h4 style="color:white;">{{ project.title }}</h4>
+    <p style="color:white;">{{ project.description }}</p>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
